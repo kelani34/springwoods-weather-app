@@ -1,0 +1,11 @@
+{
+  "name": "springwoods-test",
+  "version": "1.0.0",
+  "description": "a weather app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kelani34",
+  "license": "ISC"
+}
