@@ -43,3 +43,30 @@ async function getWeatherData(lat, lon) {
     console.error("Error fetching weather data:", error);
   }
 }
+
+
+const searchInput = document.querySelector(".search");
+searchInput.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    searchWeather(searchInput.value);
+  }
+});
+
+async function searchWeather(city) {
+  const API_KEY = "8ff2d6e561e8c713a4eddb92e542e175";
+  const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+  const forecastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`;
+
+  try {
+    const currentWeatherResponse = await fetch(currentWeatherUrl);
+    const currentWeatherData = await currentWeatherResponse.json();
+
+    const forecastWeatherResponse = await fetch(forecastWeatherUrl);
+    const forecastWeatherData = await forecastWeatherResponse.json();
+
+    displayCurrentWeather(currentWeatherData);
+    displayForecastWeather(forecastWeatherData);
+  } catch (error) {
+    console.error("Error fetching weather data:", error);
+  }
+}
