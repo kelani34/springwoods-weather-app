@@ -70,7 +70,7 @@ function displayCurrentWeather(data) {
   }
 
   // Update search input value with current city name
-  document.querySelector(".search").value = cityName;
+  //   document.querySelector(".search").value = cityName;
 }
 function displayForecastWeather(data) {
   const forecastSection = document.querySelector(".forecast-section");
@@ -85,6 +85,7 @@ function displayForecastWeather(data) {
     const temperature = Math.round(forecast.main.temp);
     const highTemp = Math.round(forecast.main.temp_max);
     const lowTemp = Math.round(forecast.main.temp_min);
+    const desc = forecast.weather[0].description;
 
     // Convert temperature to Fahrenheit if toggle is on
     let temperatureString;
@@ -104,6 +105,7 @@ function displayForecastWeather(data) {
       highTempString = `${highTemp}°C`;
       lowTempString = `${lowTemp}°C`;
     }
+    console.log(data);
 
     const forecastCard = `
       <div class="card">
@@ -116,6 +118,7 @@ function displayForecastWeather(data) {
         </div>
         <div>
           <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png" width="150" height="100" />
+          <p class="desc">${desc}</p>
         </div>
         <p class="forecast-day">${day}</p>
       </div>

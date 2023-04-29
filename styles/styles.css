@@ -12,12 +12,12 @@ body {
   background-image: url("../assets/background-image.jpg");
   background-position: center;
   background-size: cover;
-  min-height: 100vh;
+
   background-repeat: no-repeat;
 }
 
 .page {
-  height: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,9 +25,11 @@ body {
 
 .container {
   width: 100%;
+  height: 100%;
 }
 .weather-main {
   width: 100%;
+
   display: flex;
   gap: 20px;
   flex-direction: column;
@@ -222,7 +224,7 @@ body {
   background: linear-gradient(0deg, #000000, #000000), #000000;
   opacity: 0.8;
   border-radius: 11px;
-  height: 200px;
+
   max-width: 300px;
 
   display: flex;
@@ -265,6 +267,36 @@ body {
   display: flex;
   justify-content: space-evenly;
 }
+.desc {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 40px;
+
+  color: #ffffff;
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  margin: 0 auto;
+  display: none;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes pulse {
   from {
     transform: scale(1);
