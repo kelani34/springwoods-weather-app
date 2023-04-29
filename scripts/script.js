@@ -44,7 +44,34 @@ async function getWeatherData(lat, lon) {
   }
 }
 
+function displayCurrentWeather(data) {
+  const cityName = data.name;
+  const temperature = Math.round(data.main.temp);
+  const description = data.weather[0].description;
+  const humidity = data.main.humidity;
+  const windSpeed = data.wind.speed;
 
+  document.querySelector("h1").textContent = `Weather in ${cityName}`;
+  document.querySelector(".weather-description p").textContent = description;
+  document.querySelector(".humidity").textContent = `Humidity: ${humidity}%`;
+  document.querySelector(
+    ".windspeed"
+  ).textContent = `Wind Speed: ${windSpeed} km/hr`;
+
+  const degreesElement = document.querySelector(".degrees p");
+  const toggleElement = document.querySelector(".toggle input");
+
+  // Convert temperature to Fahrenheit if toggle is on
+  if (toggleElement.checked) {
+    const fahrenheit = Math.round((temperature * 9) / 5 + 32);
+    degreesElement.textContent = `${fahrenheit} °F`;
+  } else {
+    degreesElement.textContent = `${temperature} °C`;
+  }
+
+  // Update search input value with current city name
+  document.querySelector(".search").value = cityName;
+}
 const searchInput = document.querySelector(".search");
 searchInput.addEventListener("keypress", (event) => {
   if (event.key === "Enter") {
