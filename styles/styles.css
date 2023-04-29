@@ -60,6 +60,7 @@ body {
   opacity: 0.3;
   border-radius: 55px;
   font-family: "Poppins";
+  color: white;
   font-weight: 400;
   font-size: 30px;
   box-sizing: border-box;
@@ -69,6 +70,9 @@ body {
 .search:hover {
   /* transform: scale(1.1); */
   box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+}
+.search:focus {
+  opacity: 1;
 }
 
 .search:before {
