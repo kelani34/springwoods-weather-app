@@ -72,6 +72,20 @@ function displayCurrentWeather(data) {
   // Update search input value with current city name
   document.querySelector(".search").value = cityName;
 }
+
+const toggleElement = document.querySelector(".toggle input");
+toggleElement.addEventListener("change", () => {
+  const currentWeatherData = JSON.parse(
+    localStorage.getItem("currentWeatherData")
+  );
+  const forecastWeatherData = JSON.parse(
+    localStorage.getItem("forecastWeatherData")
+  );
+
+  displayCurrentWeather(currentWeatherData);
+  displayForecastWeather(forecastWeatherData);
+});
+
 const searchInput = document.querySelector(".search");
 searchInput.addEventListener("keypress", (event) => {
   if (event.key === "Enter") {
