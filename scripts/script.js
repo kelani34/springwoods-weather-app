@@ -72,7 +72,58 @@ function displayCurrentWeather(data) {
   // Update search input value with current city name
   document.querySelector(".search").value = cityName;
 }
+function displayForecastWeather(data) {
+  const forecastSection = document.querySelector(".forecast-section");
+  forecastSection.innerHTML = "";
 
+  const toggleElement = document.querySelector(".toggle input");
+
+  for (let i = 0; i < data.list.length; i += 8) {
+    const forecast = data.list[i];
+    const date = new Date(forecast.dt * 1000);
+    const day = date.toLocaleString("en-US", { weekday: "long" });
+    const temperature = Math.round(forecast.main.temp);
+    const highTemp = Math.round(forecast.main.temp_max);
+    const lowTemp = Math.round(forecast.main.temp_min);
+
+    // Convert temperature to Fahrenheit if toggle is on
+    let temperatureString;
+    let highTempString;
+    let lowTempString;
+
+    if (toggleElement.checked) {
+      const fahrenheit = Math.round((temperature * 9) / 5 + 32);
+      const highFahrenheit = Math.round((highTemp * 9) / 5 + 32);
+      const lowFahrenheit = Math.round((lowTemp * 9) / 5 + 32);
+
+      temperatureString = `${fahrenheit} °F`;
+      highTempString = `${highFahrenheit}°F`;
+      lowTempString = `${lowFahrenheit}°F`;
+    } else {
+      temperatureString = `${temperature} °C`;
+      highTempString = `${highTemp}°C`;
+      lowTempString = `${lowTemp}°C`;
+    }
+
+    const forecastCard = `
+      <div class="card">
+        <div class="forecast-degrees">
+          <p>${temperatureString}</p>
+          <span class="hi-lo">
+            <p>H:${highTempString}</p>
+            <p>L:${lowTempString}</p>
+          </span>
+        </div>
+        <div>
+          <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png" width="150" height="100" />
+        </div>
+        <p class="forecast-day">${day}</p>
+      </div>
+    `;
+
+    forecastSection.innerHTML += forecastCard;
+  }
+}
 const toggleElement = document.querySelector(".toggle input");
 toggleElement.addEventListener("change", () => {
   const currentWeatherData = JSON.parse(
