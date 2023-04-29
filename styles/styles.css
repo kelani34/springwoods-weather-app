@@ -1,0 +1,267 @@
+:root {
+  --bg-gradient: linear-gradient(0deg, #000000, #000000), #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+}
+
+body {
+  background-image: url("../assets/background-image.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  background-repeat: no-repeat;
+}
+
+.page {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+}
+.weather-main {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--bg-gradient);
+  opacity: 0.8;
+  border-radius: 55px;
+  padding: 53px 70px 43px;
+}
+
+.search-container {
+  position: relative;
+  margin-bottom: 40px;
+  /* animation: pulse 1s alternate; */
+  /* transition: all 0.5s ease-in-out; */
+}
+
+.search {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 18px 40px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    #585858;
+  opacity: 0.3;
+  border-radius: 55px;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 30px;
+  box-sizing: border-box;
+  transition: all 0.5s ease-in-out;
+}
+
+.search:hover {
+  /* transform: scale(1.1); */
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+}
+
+.search:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.1);
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  opacity: 0;
+  /* transition: all 0.3s ease-in-out; */
+}
+
+.search:hover:before {
+  opacity: 1;
+  /* transform: scale(15); */
+}
+
+.search:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.1);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  opacity: 0;
+  /* transition: all 0.3s ease-in-out; */
+}
+
+.search:hover:after {
+  opacity: 1;
+  /* transform: scale(5); */
+}
+.search-container img {
+  position: absolute;
+  opacity: 1;
+  background: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  right: 10px;
+  bottom: 16px;
+}
+
+.weather-info-container {
+}
+.weather-info-container h1 {
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 40px;
+
+  color: rgba(249, 249, 249, 0.98);
+}
+
+.degrees {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.degrees p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 50px;
+  color: rgba(249, 249, 249, 0.98);
+}
+
+/* Hide the checkbox input */
+.toggle input {
+  display: none;
+}
+
+/* Style the slider */
+.slider {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  border-radius: 34px;
+  background-color: #ccc;
+  transition: background-color 0.3s;
+}
+
+/* Style the slider when the checkbox is checked */
+.slider::before {
+  position: absolute;
+  content: "";
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: white;
+  top: 4px;
+  left: 4px;
+  transition: transform 0.3s;
+}
+
+/* Set the background color of the slider when the checkbox is checked */
+.toggle input:checked + .slider {
+  background-color: #2196f3;
+}
+
+/* Move the circle inside the slider when the checkbox is checked */
+.toggle input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+.weather-description {
+  display: flex;
+  gap: 10px;
+}
+.weather-description p {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 20px;
+  color: rgba(249, 249, 249, 0.98);
+  margin-right: 20px;
+}
+.humidity {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  margin-top: 20px;
+
+  color: rgba(249, 249, 249, 0.98);
+}
+.windspeed {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  margin-top: 20px;
+
+  color: rgba(249, 249, 249, 0.98);
+}
+.card {
+  padding: 16px 20px;
+  background: linear-gradient(0deg, #000000, #000000), #000000;
+  opacity: 0.8;
+  border-radius: 11px;
+  height: 200px;
+  max-width: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.forecast-degrees {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+
+  color: #ffffff;
+
+  text-shadow: -1.13852px 1.70778px 0.569258px rgba(0, 0, 0, 0.1);
+}
+
+.forecast-day {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+
+  color: #ffffff;
+
+  text-shadow: -1.13852px 1.70778px 0.569258px rgba(0, 0, 0, 0.1);
+}
+.hi-lo {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  color: rgba(255, 255, 255, 0.57);
+
+  display: flex;
+  justify-content: space-evenly;
+}
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
