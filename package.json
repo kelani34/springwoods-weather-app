@@ -8,9 +8,6 @@
     "start": "live-server --port=8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "http-server": "^0.12.3"
-  },
   "author": "kelani34",
   "license": "ISC",
   "devDependencies": {

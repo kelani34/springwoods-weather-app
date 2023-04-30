@@ -44,7 +44,7 @@ The app allows the user to toggle between Celsius and Fahrenheit by clicking on 
 ## Dependencies
 The app uses the following dependencies:
 
-    http-server - for running the development server.
+    live-server - for running the development server.
 
 ## Credits
 
