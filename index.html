@@ -13,37 +13,38 @@
     />
   </head>
   <body>
-    <div class="loader"></div>
+    <div class="loader-wrapper">
+      <div class="loader"></div>
+    </div>
     <main class="page">
-      <div class="weather-main">
-        <section class="container">
-          <div class="content">
-            <div class="search-container">
-              <input class="search" placeholder="Search..." />
-              <img src="./assets/search.svg" width="30" height="30" />
-            </div>
-            <div class="weather-info-container">
-              <h1>Weather in Hyderabad</h1>
-              <span class="degrees">
-                <p>26 °C</p>
-                <div class="toggle-container">
-                  <label class="toggle">
-                    <input type="checkbox" />
-                    <span class="slider round"></span>
-                  </label>
-                  <span class="toggle-label">Fahrenheit</span>
-                </div>
-              </span>
-              <span class="weather-description">
-                <img src="./assets/cloud.svg" />
-                <p>Cloudy</p>
-              </span>
-              <p class="humidity">Humidity: 45%</p>
-              <p class="windspeed">Wind Speed: 3.4 km/hr</p>
-            </div>
+      <div class="container">
+        <section class="content">
+          <div class="search-container">
+            <input class="search" placeholder="Search..." />
+            <img src="./assets/search.svg" width="30" height="30" />
+          </div>
+          <div class="weather-info-container">
+            <h1>Weather in Hyderabad</h1>
+            <span class="degrees">
+              <p>26 °C</p>
+              <div class="toggle-container">
+                <label class="toggle">
+                  <span class="c-f">C/F</span>
+                  <input type="checkbox" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </span>
+            <span class="weather-description">
+              <img src="./assets/cloud.svg" />
+              <p>Cloudy</p>
+            </span>
+            <p class="humidity">Humidity: 45%</p>
+            <p class="windspeed">Wind Speed: 3.4 km/hr</p>
           </div>
         </section>
-        <section class="forecast-section">// each forecast card</section>
+
+        <section class="forecast-section"></section>
       </div>
     </main>
     <script src="./scripts/script.js"></script>

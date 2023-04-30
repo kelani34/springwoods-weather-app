@@ -16,7 +16,17 @@ function showPosition(position) {
 
 getLocation();
 
+function showLoader() {
+  document.querySelector(".loader-wrapper").style.display = "block";
+}
+
+function hideLoader() {
+  document.querySelector(".loader-wrapper").remove();
+}
+
 async function getWeatherData(lat, lon) {
+  showLoader();
+
   const API_KEY = "8ff2d6e561e8c713a4eddb92e542e175";
   const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
   const forecastWeatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
@@ -41,9 +51,10 @@ async function getWeatherData(lat, lon) {
     displayForecastWeather(forecastWeatherData);
   } catch (error) {
     console.error("Error fetching weather data:", error);
+  } finally {
+    hideLoader(); // remove the loader from the page
   }
 }
-
 function displayCurrentWeather(data) {
   const cityName = data.name;
   const temperature = Math.round(data.main.temp);
@@ -116,7 +127,7 @@ function displayForecastWeather(data) {
             <p>L:${lowTempString}</p>
           </span>
         </div>
-        <div>
+        <div class="card-img">
           <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png" width="150" height="100" />
           <p class="desc">${desc}</p>
         </div>
