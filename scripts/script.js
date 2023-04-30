@@ -16,6 +16,15 @@ function showPosition(position) {
 
 getLocation();
 
+function showSnackbar(message) {
+  let snackbar = document.getElementById("snackbar");
+  snackbar.innerHTML = message;
+  snackbar.classList.add("show");
+  setTimeout(function () {
+    snackbar.classList.remove("show");
+  }, 3000);
+}
+
 function showLoader() {
   document.querySelector(".loader-wrapper").style.display = "block";
 }
@@ -50,7 +59,7 @@ async function getWeatherData(lat, lon) {
     displayCurrentWeather(currentWeatherData);
     displayForecastWeather(forecastWeatherData);
   } catch (error) {
-    console.error("Error fetching weather data:", error);
+    showSnackbar(`Error fetching weather data: ${error}`);
   } finally {
     hideLoader(); // remove the loader from the page
   }
@@ -122,14 +131,14 @@ function displayForecastWeather(data) {
       <div class="card">
         <div class="forecast-degrees">
           <p>${temperatureString}</p>
-          <span class="hi-lo">
+          <span class="forecast-hi-lo">
             <p>H:${highTempString}</p>
             <p>L:${lowTempString}</p>
           </span>
         </div>
-        <div class="card-img">
+        <div class="forecast-icon">
           <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png" width="150" height="100" />
-          <p class="desc">${desc}</p>
+          <p class="forecast-description">${desc}</p>
         </div>
         <p class="forecast-day">${day}</p>
       </div>
