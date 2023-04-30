@@ -1,17 +1,15 @@
 {
   "name": "springwoods-test",
   "version": "1.0.0",
-  "private": true,
   "description": "a weather app",
-  "main": "index.js",
   "type": "module",
+  "main": "index.js",
   "scripts": {
     "start": "npx http-server -p 8080",
-    "test": "jest"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "http-server": "^0.12.3",
-    "jest": "^29.5.0"
+    "http-server": "^0.12.3"
   },
   "author": "kelani34",
   "license": "ISC"
