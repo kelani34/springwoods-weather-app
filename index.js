@@ -1,3 +1,5 @@
+import { weatherDataAnalytics } from "./firebase.js";
+
 // checks if the user's browser supports geolocation, and calls showPosition if it does
 function getLocation() {
   if (navigator.geolocation) {
@@ -67,6 +69,7 @@ async function getWeatherData(lat, lon) {
     // Display the weather data on the page
     displayCurrentWeather(currentWeatherData);
     displayForecastWeather(forecastWeatherData);
+    weatherDataAnalytics(currentWeatherData);
   } catch (error) {
     // Show a snackbar with an error message if the API call fails
     showSnackbar(`Error fetching weather data: ${error}`);

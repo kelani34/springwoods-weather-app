@@ -45,6 +45,7 @@ The app allows the user to toggle between Celsius and Fahrenheit by clicking on 
 The app uses the following dependencies:
 
     live-server - for running the development server.
+    firebase - for logging events.
 
 ## Credits
 
