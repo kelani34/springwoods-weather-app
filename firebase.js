@@ -26,8 +26,6 @@ const searchInput = document.querySelector(".search");
 searchInput.addEventListener("keypress", (event) => {
   if (event.key === "Enter") {
     const searchQuery = searchInput.value;
-    console.log(`User searched for: ${searchQuery}`);
-
     logEvent(analytics, "search", {
       search_term: searchQuery,
     });
@@ -38,14 +36,11 @@ const tempUnitToggle = document.querySelector("#temp-unit-toggle");
 
 tempUnitToggle.addEventListener("change", (event) => {
   const tempUnit = event.target.checked ? "fahrenheit" : "celsius";
-  console.log(`User toggled temperature unit to ${tempUnit}`);
 
   logEvent(analytics, "temperature_unit_toggled", {
     unit: tempUnit,
   });
 });
-
-
 
 export function weatherDataAnalytics(data) {
   logEvent(analytics, "weather_data", {
