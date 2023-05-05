@@ -12,5 +12,9 @@
   "license": "ISC",
   "devDependencies": {
     "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "mongodb": "^5.4.0",
+    "ws": "^8.13.0"
   }
 }

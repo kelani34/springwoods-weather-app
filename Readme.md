@@ -46,6 +46,7 @@ The app uses the following dependencies:
 
     live-server - for running the development server.
     firebase - for logging events.
+    mongodb - for logging events to an external database.
 
 ## Credits
 

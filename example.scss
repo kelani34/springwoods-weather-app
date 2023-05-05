@@ -1,0 +1,11 @@
+@mixin space {
+  padding: 50px 20px;
+}
+
+.box {
+  @include space;
+}
+
+.footer {
+  @include space;
+}
